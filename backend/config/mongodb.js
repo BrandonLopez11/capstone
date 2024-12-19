@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoURI = process.env.MONGODB_URI
 
 class Database {
 
@@ -7,7 +8,7 @@ class Database {
     }
     connectDB () {
         mongoose
-            .connect("mongodb+srv://lopez97bl:<password>@blopez.8aogk.mongodb.net/?retryWrites=true&w=majority&appName=BLopez")
+            .connect(mongoURI)
             .then(() => {
                 console.log("database is working")
             }).catch((err) =>{
